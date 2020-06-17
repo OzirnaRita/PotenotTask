@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="content">
+    <div class="coordBlock">
+    <p>Введіть координати першої точки</p>
+    <label for="firstPointX">X:</label>
+    <input class="notEmpty" type="number" id="firstPointX">
+    <label for="firstPointY">Y:</label>
+    <input class="notEmpty" type="number" id="firstPointY">
+    <p>Введіть координати другої точки</p>
+    <label for="secondPointX">X:</label>
+    <input class="notEmpty" type="number" id="secondPointX">
+    <label for="secondPointY">Y:</label>
+    <input class="notEmpty" type="number" id="secondPointY">
+    <p>Введіть координати третьої точки</p>
+    <label for="thirdPointX">X:</label>
+    <input class="notEmpty" type="number" id="thirdPointX">
+    <label for="thirdPointY">Y:</label>
+    <input class="notEmpty" type="number" id="thirdPointY">
+    <p>Введіть координати четвертої точки</p>
+    <label for="fourthPointX">X:</label>
+    <input class="notEmpty" type="number" id="fourthPointX">
+    <label for="fourthPointY">Y:</label>
+    <input class="notEmpty" type="number" id="fourthPointY">
+
+   </div> 
+   <div class="cornersBlock">
+      <div class="firstCorner">Кут між першим та другим пунктом
+        <p> &beta;1:
+          <input type="number" class="cornerDegr notEmpty" id="betaFirstCornerDegr"> 
+          <label for="betaFirstCornerDegr">&deg;</label>
+          <input type="number" class="cornerMin field" id="betaFirstCornerMin" step="0.001">
+          <label for="betaFirstCornerMin" class="cornerMin">'</label>
+          <input type="number" class="cornerSec field" id="betaFirstCornerSec" step="0.001">
+          <label for="betaFirstCornerSec" class="cornerSec">"</label>
+        </p>
+      </div>
+      <div class="secondCorner">Кут між другим та третім пунктом
+        <p> &beta;2:
+          <input type="number" class="cornerDegr notEmpty" id="betaSecondCornerDegr"> 
+          <label for="betaSecondCornerDegr">&deg;</label>
+          <input type="number" class="cornerMin field" id="betaSecondCornerMin" step="0.001">
+          <label for="betaSecondCornerMin" class="cornerMin">'</label>
+          <input type="number" class="cornerSec field" id="betaSecondCornerSec" step="0.001">
+          <label for="betaSecondCornerSec" class="cornerSec">"</label>
+        </p>
+      </div>
+      <div class="thirdCorner">Кут між третім та четвертим пунктом
+        <p> &beta;3
+          <input type="number" class="cornerDegr notEmpty" id="betaThirdCornerDegr"> 
+          <label for="betaThirdCornerDegr">&deg;</label>
+          <input type="number" class="cornerMin field" id="betaThirdCornerMin" step="0.001">
+          <label for="betaThirdCornerMin" class="cornerMin">'</label>
+          <input type="number" class="cornerSec field" id="betaThirdCornerSec" step="0.001">
+          <label for="betaThirdCornerSec" class="cornerSec">"</label>
+        </p>
+      </div>
+      
+       
+</div>
+<button class="button" onclick="event.preventDefault()">Розрахувати</button>
+
+</form>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

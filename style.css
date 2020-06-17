@@ -1,0 +1,31 @@
+
+
+.button{
+    height: 50px;
+    width: 150px;
+    background-color: lightgrey;
+    text-align: center;   
+    line-height: 50px;
+    margin: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+
+.button:hover{
+    background-color: rgb(173, 169, 169);
+}
+
+.content{
+    display: flex;
+    padding: 20px;
+}
+
+.cornersBlock{
+    padding-top: 55px;
+    padding-left: 50px;
+}
+
+.invalid{
+ border: 1px solid red;
+}
