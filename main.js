@@ -45,10 +45,10 @@ function countTang(){
   let B2deg = (b2deg + (b2min / 60) + (b2sec / 3600));
   let B3deg = (b3deg + (b3min / 60) + (b3sec / 3600));
 
-  let deltY = ((y2 - y1) * 1/Math.tan(B1deg * Math.PI/180)) + ((y1 - y3) * 1/Math.tan(B2deg * Math.PI/180)) - x2 + x3;
-  let deltX = ((x2 - x1) * 1/Math.tan(B1deg * Math.PI/180)) + ((x1 - x3) * 1/Math.tan(B2deg * Math.PI/180)) + y2 - y3;
-
-  tgAlpha1P = deltY / deltX;
+  let deltY = (((y2 - y1) * (1/Math.tan(B1deg * Math.PI/180)).toFixed(7)) + ((y1 - y3) * (1/Math.tan(B2deg * Math.PI/180)).toFixed(7)) - x2 + x3).toFixed(2);
+  let deltX = (((x2 - x1) * (1/Math.tan(B1deg * Math.PI/180)).toFixed(7)) + ((x1 - x3) * (1/Math.tan(B2deg * Math.PI/180)).toFixed(7)) + y2 - y3).toFixed(2);
+  
+  let tgAlpha1P = (deltY / deltX).toFixed(7);
 
   let at = (Math.atan(tgAlpha1P) * 180/Math.PI);
   if(at < 0){
@@ -68,9 +68,9 @@ function countTang(){
   let res3 = secToDegMinSec(cornSec + (B3deg * 3600));
   let alpha4p = res3.degRes + '°' + res3.minRes + "'" + res3.secRes + '"';
 
-  let tgAlpha2P = Math.tan(degMinSectoRad(res1.degRes,res1.minRes,res1.secRes))
-  let tgAlpha3P = Math.tan(degMinSectoRad(res2.degRes,res2.minRes,res2.secRes))
-  let tgAlpha4P = Math.tan(degMinSectoRad(res3.degRes,res3.minRes,res3.secRes))
+  let tgAlpha2P = (Math.tan(degMinSectoRad(res1.degRes,res1.minRes,res1.secRes))).toFixed(7);
+  let tgAlpha3P = (Math.tan(degMinSectoRad(res2.degRes,res2.minRes,res2.secRes))).toFixed(7);
+  let tgAlpha4P = (Math.tan(degMinSectoRad(res3.degRes,res3.minRes,res3.secRes))).toFixed(7);
   
   let xP = ((x1 * tgAlpha1P) - (x2 * tgAlpha2P) + y2 - y1)/(tgAlpha1P - tgAlpha2P);
   let xP1 = ((x3 * tgAlpha3P) - (x4 * tgAlpha4P) + y4 - y3)/(tgAlpha3P - tgAlpha4P);
@@ -81,14 +81,13 @@ function countTang(){
   let yp11 = y1 + (xP - x1) * tgAlpha1P;
   console.log(yp11);
   let yp12 = y2 + (xP - x2) * tgAlpha2P;
-  console.log(yp12);
+
 
   let yp21 = y3 + (xP1 - x3) * tgAlpha3P;
   console.log(yp21);
   let yp22 = y4 + (xP1 - x4) * tgAlpha4P;
-  console.log(yp22);
-  console.log((yp11+yp12+yp21+yp22)/4);
-
+ 
+ 
   document.getElementById('y1').innerHTML = y1.toFixed(2);
   document.getElementById('x1').innerHTML = x1.toFixed(2);
   document.getElementById('y2').innerHTML = y2.toFixed(2);
@@ -104,10 +103,26 @@ function countTang(){
   document.getElementById('xMin13').innerHTML = (x1 - x3).toFixed(2);
 
   document.getElementById('beta1').innerHTML = b1deg + '°' + b1min + "'" + b1sec + '"'; 
-  //document.querySelectorAll('beta2').forEach(elem => {
-  //  elem.innerHTML = b2deg + '°' + b2min + "'" + b2sec + '"';}); 
+  document.querySelectorAll('.beta2').forEach(elem => {
+   elem.innerHTML = b2deg + '°' + b2min + "'" + b2sec + '"'}); 
   document.getElementById('beta3').innerHTML = b3deg + '°' + b3min + "'" + b3sec + '"'; 
-}
+  document.getElementById('ctgBeta1').innerHTML = (1/Math.tan(B1deg * Math.PI/180)).toFixed(7);
+  document.getElementById('ctgBeta2').innerHTML = (1/Math.tan(B2deg * Math.PI/180)).toFixed(7);
+  document.getElementById('deltY').innerHTML = deltY;
+  document.getElementById('deltX').innerHTML = deltX;
+  document.getElementById('tgAlpha1p').innerHTML = tgAlpha1P;
+  document.querySelectorAll('.alpha1p').forEach(elem => {
+      elem.innerHTML = alpha1p;
+  });
+  document.getElementById('tgAlpha2p').innerHTML = tgAlpha2P;
+  document.getElementById('tgAlpha3p').innerHTML = tgAlpha3P;
+  document.getElementById('tgAlpha4p').innerHTML = tgAlpha4P;
+  document.getElementById('alpha2p').innerHTML = alpha2p;
+  document.getElementById('alpha3p').innerHTML = alpha3p;
+  document.getElementById('alpha4p').innerHTML = alpha4p;
+
+
+}       
 
 function degMinSectoSec(deg,min,sec){
   let secRes = (deg * 3600) + (min * 60) + sec;
